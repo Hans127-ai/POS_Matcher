@@ -59,7 +59,35 @@
 `UnboundLocalError: cannot access local variable 'df_pair_list' where it is not associated with a value` 
 
 
-5. По итогам выполнения задачи подготовь файл matchmaker_new_2.ipynb, который я смогу скачать на свой компьютер и протестировать. 
+5. По итогам выполнения задачи подготовь файл matchmaker_new_2.ipynb, который я смогу скачать на свой компьютер и протестировать.
+
+
+-------
+
+Ошибка при расчёте, подробности ниже:
+Traceback (most recent call last):
+  File "C:\Users\rokotyev\AppData\Local\Temp\ipykernel_22124\2885588637.py", line 34, in on_calculate_click
+    df_pair_list = find_pairs(test_pos_list, df_pos_list_with_kpi)
+  File "C:\Users\rokotyev\AppData\Local\Temp\ipykernel_22124\711432130.py", line 38, in find_pairs
+    df_pair_list['SHIP_TO'] = df_pair_list['SHIP_TO'].astype('int')
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "c:\Users\rokotyev\AppData\Local\miniconda3\Lib\site-packages\pandas\core\generic.py", line 6541, in astype
+    new_data = self._mgr.astype(dtype=dtype, errors=errors)
+  File "c:\Users\rokotyev\AppData\Local\miniconda3\Lib\site-packages\pandas\core\internals\managers.py", line 614, in astype
+    return self.apply("astype", dtype=dtype, errors=errors)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\rokotyev\AppData\Local\miniconda3\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "c:\Users\rokotyev\AppData\Local\miniconda3\Lib\site-packages\pandas\core\internals\blocks.py", line 607, in astype
+    new_values = astype_array_safe(values, dtype, errors=errors)
+  File "c:\Users\rokotyev\AppData\Local\miniconda3\Lib\site-packages\pandas\core\dtypes\astype.py", line 240, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "c:\Users\rokotyev\AppData\Local\miniconda3\Lib\site-packages\pandas\core\dtypes\astype.py", line 185, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "c:\Users\rokotyev\AppData\Local\miniconda3\Lib\site-packages\pandas\core\dtypes\astype.py", line 134, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
 
  
 
